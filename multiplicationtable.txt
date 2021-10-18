@@ -1,0 +1,83 @@
+CONSOLE OUTPUT/TESTING RESULTS: 
+Multiplication Table Tool 
+
+How many rows would you like? 11
+How many columns would you like? 12
+          1    2    3    4    5    6    7    8    9   10   11
+--------------------------------------------------------------
+    1|    1    2    3    4    5    6    7    8    9   10   11
+    2|    2    4    6    8   10   12   14   16   18   20   22
+    3|    3    6    9   12   15   18   21   24   27   30   33
+    4|    4    8   12   16   20   24   28   32   36   40   44
+    5|    5   10   15   20   25   30   35   40   45   50   55
+    6|    6   12   18   24   30   36   42   48   54   60   66
+    7|    7   14   21   28   35   42   49   56   63   70   77
+    8|    8   16   24   32   40   48   56   64   72   80   88
+    9|    9   18   27   36   45   54   63   72   81   90   99
+   10|   10   20   30   40   50   60   70   80   90  100  110
+   11|   11   22   33   44   55   66   77   88   99  110  121
+   12|   12   24   36   48   60   72   84   96  108  120  132
+
+
+C++ SOURCE CODE: 
+//multiplicationtable.cpp: Write a program to create a multiplication table to help your younger sibling. Ask them for how many rows and how many columns they need the table to have, and then print out a nicely lined up table with the results.
+//Name: Luke MacLean
+//Class Section: COSC-1436.900 Online
+// Date: 10/17/2021
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <string>
+#include <cstdlib>
+#include <ctime> 
+using namespace std;
+
+int main()
+{
+    // Variables to hold the number of rows and columns the user needs for the multiplication table  (1 point)
+    int firstNumber, secondNumber;
+
+    // Ask the user for the number of rows and columns they need and place their responses into your variables. (1 point)
+    cout << "Multiplication Table Tool \n\n";
+    cout << "How many rows would you like? ";
+    cin >> firstNumber;
+    cout << "How many columns would you like? ";
+    cin >> secondNumber;
+
+    for (int i = 0; i <= secondNumber; i++){
+
+        //Use nested loops to print all of the values of the row value times the column value (2 points)
+
+        for (int j = 0; j <= firstNumber; j++){
+            if (i == 0 && j != 0)
+            {
+                cout << setw(5) << j;
+            }
+            else if (j == 0 && i != 0)
+            {
+                cout << setw(5) << i << "|";
+            }
+            else if (i == 0 && j == 0)
+            {
+                // Prettiness point: Display the output in a perfectly lined up formatted table of values (1 point)
+                cout << "      ";
+            }
+            
+            else{
+
+                // Print a table of the column numbers and the row numbers (2 points)
+                cout << setw(5) << i*j;
+            }
+            
+        }
+        if(i == 0){
+            cout << "\n--------------------------------------------------------------" << endl;
+        } else {
+        cout << endl;
+        }
+
+    }
+    
+    return 0;
+}
